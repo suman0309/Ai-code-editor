@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "mongodb"
+  // The `url` datasource property is no longer supported in Prisma schema files.
+  // Move your connection URL to runtime configuration (e.g. pass `adapter` or
+  // `accelerateUrl` to the PrismaClient constructor) or to `prisma.config.ts`.
+  // See: https://pris.ly/d/config-datasource and https://pris.ly/d/prisma7-client-config
+}
+
+model User{
+  id String @id @map("_id")
+  name String 
+  email String
+  createAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
