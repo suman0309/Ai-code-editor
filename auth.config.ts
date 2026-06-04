@@ -6,12 +6,14 @@ import type { NextAuthConfig } from "next-auth";
 const authOptions: NextAuthConfig = {
     providers: [
         Github({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET,
+            clientId: process.env.AUTH_GITHUB_ID,
+            clientSecret: process.env.AUTH_GITHUB_SECRET,
+            allowDangerousEmailAccountLinking: true,
         }),
         Google({
-            clientId: process.env.GOOGLE_ID,
-            clientSecret: process.env.GOOGLE_SECRET,
+            clientId: process.env.AUTH_GOOGLE_ID,
+            clientSecret: process.env.AUTH_GOOGLE_SECRET,
+             allowDangerousEmailAccountLinking: true,
         }),
     ],
 };
